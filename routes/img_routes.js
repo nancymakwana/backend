@@ -55,7 +55,7 @@ router.get('/:pro_id', function (req,res,next) {
 router.post('/:fk_pro_id',upload.single('img'),function (req, res, next) {
     console.log("post ma aayu");
     product_img.addImage(req.params.fk_pro_id,req.body,req.file.filename,function (err, rows) {
-        console.log(req.body);
+        console.log(req.file.filename);
         if (err) {
             res.json(err);
         }
