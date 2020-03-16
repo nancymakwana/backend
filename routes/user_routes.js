@@ -68,8 +68,8 @@ router.post('/', upload.single('img'),function (req, res, next) {
 
 router.put('/:user_id', upload.single('img') ,function (req,res,next) {
     console.log("update");
-    user.UpdateUser(req.params.user_id,req.body,req.file.filename,function (err, rows) {
-        console.log(req.file.filename);
+    user.UpdateUser(req.params.user_id,req.body,req.file!=null?req.file.filename:req.body.img,function (err, rows) {
+        // console.log(req.file.filename);
         if (err) {
             res.json(err);
         }

@@ -13,7 +13,7 @@ var product = {
         return db.query('insert into product_tbl  values(?,?,?,?,?,?,?,?,?,?)', [item.pro_id, item.pro_name, item.info, item.size, item.color, item.rent, item.soh,item.fashion, item.sp_instruction, item.fk_cat_id], callback);
     },
     UpdateProduct: function (pro_id,item,callback) {
-        return db.query('update product_tbl set pro_name=?,info=?,size=?,color=?,rent=?,soh=?,sp_instruction=?,fk_cat_id=? where pro_id=?',[item.pro_name, item.info, item.size, item.color, item.rent, item.soh, item.sp_instruction, item.fk_cat_id,pro_id], callback);
+        return db.query('update product_tbl set pro_name=?,info=?,size=?,color=?,rent=?,soh=?,fashion=?,sp_instruction=?,fk_cat_id=? where pro_id=?',[item.pro_name, item.info, item.size, item.color, item.rent, item.soh, item.fashion,item.sp_instruction, item.fk_cat_id,pro_id], callback);
     }
 };
 

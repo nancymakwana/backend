@@ -67,7 +67,7 @@ router.post('/:fk_pro_id',upload.single('img'),function (req, res, next) {
 
 
 router.put('/:pro_img_id',  upload.single('img'),function (req,res,next) {
-    product_img.UpdateImage(req.params.pro_img_id, req.file!=null?req.file.filename:req.body.img, function (err, rows) {
+    product_img.UpdateImage(req.params.pro_img_id,req.file!=null?req.file.filename:req.body.img, function (err, rows) {
         
         if (err) {
             res.json(err);

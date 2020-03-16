@@ -65,7 +65,7 @@ router.post('/', upload.single('img'),function (req, res, next) {
 
 router.put('/:user_id', upload.single('img'),function (req,res,next) {
     console.log("update");
-    deliveryman.UpdateDeliveryman(req.params.user_id,req.body,req.file.filename,function (err, rows) {
+    deliveryman.UpdateDeliveryman(req.params.user_id,req.body,req.file!=null?req.file.filename:req.body.img,function (err, rows) {
         if (err) {
             res.json(err);
         }
