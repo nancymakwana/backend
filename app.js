@@ -19,6 +19,9 @@ var notassignrouter=require('./routes/notassign_routes');
 var userloginrouter=require('./routes/user/loginuser_routes');
 var signuprouter=require('./routes/user/signup_routes');
 var emailrouter=require('./routes/email_routes');
+var prodrouter=require('./routes/user/pro_routes');
+var cartrouter=require('./routes/user/cart_routes');
+var searchrouter=require('./routes/user/search_model');
 var app = express();
 
 // view engine setup
@@ -46,6 +49,9 @@ app.use('/signup',signuprouter);
 app.use('/deliveryviewmore',Deliveryassignrouter);
 app.use('/notassign',notassignrouter);
 app.use('/emailuser',emailrouter);
+app.use('/prod',prodrouter);
+app.use('/cart',cartrouter);
+app.use('/search',searchrouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
