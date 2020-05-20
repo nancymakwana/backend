@@ -16,9 +16,8 @@ router.get('/',function(req,res,next){
 });
 
 router.post('/',function (req, res, next) {
-    //console.log("post ma aayu");
+   // console.log("post ma aayu");
     order.addOrder(req.body,function (err, rows) {
-        console.log(req.body);
         if (err) {
             res.json(err);
         }
@@ -27,18 +26,6 @@ router.post('/',function (req, res, next) {
         }
     });
 });
-// router.post('/:fk_order_id',function (req, res, next) {
-//     console.log("Order details ma aayu");
-//     order.addOrderDetails(req.params.fk_order_id,req.body,function (err, rows) {
-//         console.log(req.body);
-//         if (err) {
-//             res.json(err);
-//         }
-//         else {
-//             res.json(rows);
-//         }
-//     });
-// });
 
 router.get('/:order_id', function (req,res,next) {
     order.getOrderById(req.params.order_id,function (err, rows) {
@@ -50,6 +37,8 @@ router.get('/:order_id', function (req,res,next) {
         }
     });
 });
+
+
 router.put('/:order_id',function (req,res,next) {
     order.UpdateOrder(req.body,req.params.order_id,function (err, rows) {
        // console.log(req.file.filename);
@@ -61,5 +50,15 @@ router.put('/:order_id',function (req,res,next) {
         }
     });
 });
-
+router.delete('/:order_id',function (req,res,next) {
+    order.deleteOrder(req.params.order_id,function (err, rows) {
+       // console.log(req.file.filename);
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(rows);
+        }
+    });
+});
 module.exports=router;

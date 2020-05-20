@@ -21,7 +21,15 @@ var signuprouter=require('./routes/user/signup_routes');
 var emailrouter=require('./routes/email_routes');
 var prodrouter=require('./routes/user/pro_routes');
 var cartrouter=require('./routes/user/cart_routes');
-var searchrouter=require('./routes/user/search_model');
+var searchrouter=require('./routes/user/search_routes');
+var deletecartrouter=require('./routes/user/deletecart_routes');
+ var updateprorouter=require('./routes/user/updatepro_routes');
+ var getOrderrouter=require('./routes/user/getOrder');
+ var orderdetailsrouter=require('./routes/user/order_details_routes');
+ var currentOrderrouter=require('./routes/user/current_order_routes');
+ var pastOrderrouter=require('./routes/user/past_order_routes');
+ var feedbackrouter=require('./routes/user/feedback_routes');
+ var orderbyidrouter=require('./routes/user/orderbyid_routes');
 var app = express();
 
 // view engine setup
@@ -52,6 +60,14 @@ app.use('/emailuser',emailrouter);
 app.use('/prod',prodrouter);
 app.use('/cart',cartrouter);
 app.use('/search',searchrouter);
+app.use('/deletecart',deletecartrouter);
+app.use('/updateproduct',updateprorouter);
+app.use('/getorder',getOrderrouter);
+app.use('/orderdetails',orderdetailsrouter);
+app.use('/currentorder',currentOrderrouter);
+app.use('/pastorder',pastOrderrouter);
+app.use('/feedback',feedbackrouter);
+app.use('/orderbyid',orderbyidrouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
